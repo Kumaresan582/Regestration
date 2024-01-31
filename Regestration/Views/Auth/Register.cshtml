@@ -1,0 +1,64 @@
+﻿@model Regestration.Models.UserRegister
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>Register</h1>
+
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+           
+            <div class="text-center">
+                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                     style="width: 185px;" alt="logo">
+                <h4 class="mt-1 mb-5 pb-1">Welcome To Registration</h4>
+            </div>
+            <form method="post" asp-controller="Auth" asp-action="Register">
+                <div class="mb-3">
+                    <label asp-for="FirstName">Full Name</label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="LastName"> </label>
+                    <input type="text" asp-for="LastName" placeholder="Enter EmailId" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Email"> </label>
+                    <input type="text" asp-for="Email" placeholder="Enter Username" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Password"> </label>
+                    <input type="password" asp-for="Password" placeholder="Enter password" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="ConfirmPassword"> </label>
+                    <input type="password" asp-for="ConfirmPassword" placeholder="Enter Confirm_password" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                @if (ViewBag.dataError != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewBag.dataError
+                    </div>
+                }
+                @if (ViewBag.dataSucess != null)
+                {
+                    <div class="alert alert-success" role="alert">
+                        @ViewBag.dataSucess
+                    </div>
+                }
+                <div class="mb-3 mt-4 d-flex align-items-center justify-content-center pb-4">
+                    <button type="submit" class="btn btn-outline-danger w-50">Submits</button>
+                </div>
+                <a class="d-flex align-items-center justify-content-center " href="https://localhost:7071/Auth/LogingIn">Try to Login?</a>
+            </form>
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿@model List< Regestration.Models.UserRegister>
+@{
+    ViewData["Title"] = "Data";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div style="display: flex;">
+            <h1 style="margin-top: 20px;">Data</h1>
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                 style="width: 130px;" alt="logo">
+        </div>
+        <div class="">
+          <a href="https://localhost:7071" class="btn ">Home</a>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">FirstName</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">CreatedDate</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null && Model.Count > 0)
+                    {
+                        int i = 0;
+                        foreach (var user in Model)
+                        {
+                            i++;
+                            <tr>
+                                <th scope="row">@i</th>
+                                <td>@user.FirstName</td>
+                                <td>@user.LastName</td>
+                                <td>@user.Email</td>
+                                <td>@user.CreatedTime</td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td class="colspan-4">No Records Found</td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
